@@ -1,0 +1,16 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main{
+	double L = 5;
+	double l = 2;
+	double d = 1;
+	double h = 5/215;
+	double v0 = 100;
+	int N = 2.0*pow((L/h),2)
+	
+
+	return 0;
+}
