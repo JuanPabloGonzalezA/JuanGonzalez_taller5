@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main{
+int main(){
 	double L = 5;
 	double l = 2;
 	double d = 1;
@@ -12,11 +12,11 @@ int main{
 	int N = 2.0*pow((L/h),2);
 	int M = 512;
 
-	int i;
-	int j;
+	int i;//recorre en x
+	int j;//recorre en y
 	
 
-	double **V = new double *[M];
+	double **V = new double *[M];//V[x,y]
 	double **Ex = new double *[M];
 	double **Ey = new double *[M];
   
@@ -29,7 +29,22 @@ int main{
 
 	for(i=0;i<M;i++)
 	{
+		for(j=0;j<M;j++)
+		{
+			V[i][j]=i;
+			Ex[i][j]=1;
+			Ey[i][j]=2;
+		}
+	}
 	
+	//impresion
+	for(i=1;i<M-1;i++)
+	{
+		for(j=1;j<M-1;j++)
+		{
+			cout<<V[i][j]<<" "<<Ex[i][j]<<" "<<Ey[i][j]<<endl;
+		}
+		cout<<endl;
 	}
 
 	return 0;
