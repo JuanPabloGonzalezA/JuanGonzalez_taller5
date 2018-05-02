@@ -10,6 +10,8 @@ plt.imshow(datos[:,:,0],extent=[-2.5,2.5,-2.5,2.5],cmap='hot')
 plt.colorbar()
 plt.axhline(y=0, color='k')
 plt.axvline(x=0, color='k')
+plt.xlim(-2.5,2.5)
+plt.ylim(-2.5,2.5)
 plt.streamplot(np.linspace(-2.5,2.5,510),np.linspace(-2.5,2.5,510),datos[:,:,1],datos[:,:,2])
 plt.savefig('placas.pdf')
 
