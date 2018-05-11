@@ -1,25 +1,17 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.animation import FuncAnimation
+import matplotlib.animation as anm
 
 uxt=np.loadtxt('datos.txt')
 x=np.linspace(0,100,101)
-# First set up the figure, the axis, and the plot element we want to animate
+
 fig = plt.figure()
-ax = plt.axes(xlim=(0, 100), ylim=(-1, 1))
-line, = ax.plot([], [], lw=2)
+ax = fig.add_subplot(111)
+ax.set(xlabel=r'$x$',ylabel=r'$u(x,t)$',title='Cuerda vibrando',ylim=(-1,1),xlim=(0,100))
+datos, = ax.plot(x,uxt[0,:])
 
-# initialization function: plot the background of each frame
-def init():
-    line.set_data([], [])
-    return line,
+def iteracion(i):
+	datos.set_ydata(uxt[i,:])
 
-# animation function.  This is called sequentially
-def animate(i):
-    x = np.linspace(0, 2, 1000)
-    y = np.sin(2 * np.pi * (x - 0.01 * i))
-    line.set_data(x, y)
-    return line,
-anim = animation.FuncAnimation(fig, animate, init_func=init,frames=20, interval=20, blit=True)
-plt.show()
-#plt.savefig('cuerda.gif')
+gif = anm.FuncAnimation(fig, iteracion,frames=101, interval=50)
+gif.save('cuerda.gif')

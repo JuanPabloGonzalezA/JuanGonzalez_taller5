@@ -44,8 +44,8 @@ int main()
 	int snap = 0;
 	for(i=1;i<Nt;i++)
 	{
-		int t=i*dt;
-		if(t!=0 and t % 10 == 0)
+		double t=i*dt;
+		if(i!=0 and i % 20 == 0)
 		{
 			for(j=0;j<Nx;j++)
 			{
