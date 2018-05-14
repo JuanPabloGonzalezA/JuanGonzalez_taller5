@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.animation as anm
 
 uxt=np.loadtxt('datos.txt')
-x=np.linspace(0,100,101)
+x=np.linspace(0,100,len(uxt[0,:]))
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
@@ -13,5 +13,5 @@ datos, = ax.plot(x,uxt[0,:])
 def iteracion(i):
 	datos.set_ydata(uxt[i,:])
 
-gif = anm.FuncAnimation(fig, iteracion,frames=101, interval=50)
+gif = anm.FuncAnimation(fig, iteracion,frames=len(uxt[:,0]), interval=50)
 gif.save('cuerda.gif')

@@ -8,8 +8,8 @@ int main()
 	double c = 2.0;
 	double L = 100;
 	double T = 200;
-	double dx = 1;
-	double dt = 0.1;
+	double dx = 0.1;
+	double dt = 0.01;
 	int Nx = L/dx +1;
 	int Nt = T/dt +1;
 	int Nsnaps = 20;
@@ -35,7 +35,7 @@ int main()
 			uxtold[j]=5.0-5.0*x/L;
 			uxtcenter[j]=5.0-5.0*x/L;
 		}
-		cout<<uxtold[j]<<" ";
+		/*cout<<uxtold[j]<<" ";*/
 	}
 	cout<<endl;
 	uxtnew[0]=0;
@@ -45,11 +45,11 @@ int main()
 	for(i=1;i<Nt;i++)
 	{
 		double t=i*dt;
-		if(i!=0 and i % 20 == 0)
+		if(i!=0 and i % 200 == 0)
 		{
-			for(j=0;j<Nx;j++)
+			for(j=0;j<(Nx/10);j++)
 			{
-				cout<<uxtold[j]<<" ";
+				cout<<uxtold[j*10]<<" ";
 			}
 			cout<<endl;
 		}

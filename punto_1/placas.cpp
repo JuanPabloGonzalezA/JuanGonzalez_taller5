@@ -55,7 +55,7 @@ int main(){
 	}
 	//metodo de "rela"
 	int k;
-	for(k=0;k<5000;k++)//iteraciones
+	for(k=0;k<5000;k++)//iteraciones hasta 5000 porque se demoraba mucho con n=2*pow(L/h,2.0). si quiere cambielo pero se demora mucho
 	{
 		for(i=1;i<M-1;i++)//recorre y
 		{
